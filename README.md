@@ -27,6 +27,3 @@ TODOs and research extensions
 - Dynamic shape handling and JIT-backed kernels
 - LLM fine-tuning on CUDA/Triton kernel corpora
 
-Citation
---------
-If you use this work, please cite it.
