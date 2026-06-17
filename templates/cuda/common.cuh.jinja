@@ -1,0 +1,8 @@
+// common.cuh - utilities
+#pragma once
+
+#include <cuda.h>
+#include <cuda_runtime.h>
+
+// Boundary check macro
+#define BOUNDS_CHECK(idx, limit) ((idx) < (limit))

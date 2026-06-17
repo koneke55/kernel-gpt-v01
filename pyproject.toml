@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kernel_gpt"
+version = "0.1.0"
+description = "Hardware-aware GPU kernel synthesis framework (kernel-gpt)"
+authors = [ { name = "Researcher", email = "researcher@example.com" } ]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=1.13.0",
+    "numpy",
+    "jinja2",
+    "openai",
+    "anthropic",
+    "pytest",
+    "matplotlib",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
