@@ -15,7 +15,7 @@ Run the CLI help:
 ```bash
 python -m kernel_gpt
 ```
-
+ 
 Design
 ------
 
