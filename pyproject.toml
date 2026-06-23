@@ -15,6 +15,7 @@ dependencies = [
     "jinja2",
     "openai",
     "anthropic",
+    "httpx>=0.24",
     "pytest",
     "matplotlib",
 ]
