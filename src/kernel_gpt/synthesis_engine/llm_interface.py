@@ -4,6 +4,7 @@ from typing import Tuple, Dict, Any
 import hashlib
 import json
 from .strategy import Strategy, HeuristicStrategySelector
+from .llm_clients import generate_strategy
 
 
 @dataclass
@@ -26,7 +27,11 @@ class LLMArchitect:
         }).encode()).hexdigest()
         if key in self.cache:
             return self.cache[key]
-        # TODO: integrate with OpenAI or Anthropic for structured JSON responses
-        strat = HeuristicStrategySelector.select(spec, gpu)
+        # Try to get a structured strategy from an LLM (OpenAI or Anthropic).
+        # If unavailable or the call fails, fall back to the heuristic selector.
+        try:
+            strat = generate_strategy(spec, gpu) or HeuristicStrategySelector.select(spec, gpu)
+        except Exception:
+            strat = HeuristicStrategySelector.select(spec, gpu)
         self.cache[key] = strat
         return strat
